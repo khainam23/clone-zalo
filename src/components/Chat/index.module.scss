@@ -6,6 +6,7 @@
   border-right: 1px solid var(--line-color);
   flex: 1;
   padding: 0;
+  overflow: hidden;
 }
 
 .header {
@@ -61,12 +62,12 @@
         --color-selected: #e5e7eb;
 
         .filter {
-            font-size: 15px;
-            padding: 5px 10px;
+          font-size: 15px;
+          padding: 5px 10px;
 
-            .text {
-                margin-right: 5px;
-            }
+          .text {
+            margin-right: 5px;
+          }
 
           &:hover {
             background-color: var(--color-selected);
@@ -106,5 +107,63 @@
   &.selected {
     color: var(--color-selected);
     border-bottom: 3px solid var(--color-selected);
+  }
+}
+
+.chats {
+  max-height: 100%;
+  overflow-y: auto; /* Hiển thị thanh trượt dọc nếu nội dung vượt quá chiều cao */
+  overflow-x: hidden; /* Ẩn thanh trượt ngang */
+  box-sizing: border-box;
+}
+
+.card-chat {
+  &.pin {
+    background-color: #f7f8f9;
+  }
+
+  .wrapper {
+    display: flex;
+    padding: 10px 10px;
+
+    .image {
+      border-radius: 50%;
+      width: 47px;
+      height: 47px;
+    }
+
+    .info {
+        margin-left: 15px;
+        width: 100%;
+
+        .top {
+            margin-bottom: 5px;
+
+            .time {
+                color: #ccc;
+            }
+        }
+
+        .top, .bottom {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bottom {
+            .text {
+                color: #ccc;
+            }
+
+            .number {
+              margin-right: 5px;
+              background-color: #c31818;
+              padding: 5px;
+              border-radius: 50%;
+              color: #fff;
+              font-size: 13px;
+            }
+        }
+    }
   }
 }

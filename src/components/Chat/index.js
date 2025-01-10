@@ -7,8 +7,12 @@ import {
   faMagnifyingGlass,
   faUserGroup,
   faEllipsis,
-  faCaretDown
+  faCaretDown,
+  faThumbTack,
+  faBellSlash,
+  faUnderline,
 } from "@fortawesome/free-solid-svg-icons";
+import test from "../../assets/images/test.png";
 
 const cx = classNames.bind(styles);
 
@@ -48,8 +52,8 @@ function Chat(props) {
             {/* Method */}
             <div className={cx("method")}>
               {/* Filter */}
-              <div className={cx('filter')}>
-                <span className={cx('text')}>Phân loại</span>
+              <div className={cx("filter")}>
+                <span className={cx("text")}>Phân loại</span>
                 <FontAwesomeIcon icon={faCaretDown} />
               </div>
 
@@ -66,12 +70,21 @@ function Chat(props) {
       </header>
 
       {/* Body chat */}
-      <div></div>
+      <div className={cx("chats")}>
+      {Array.from({ length: 10 }, (_, i) => {
+          return <CardChat key={i} image={test} />;
+        })}
+      </div>
     </div>
   );
 }
 
-function Icon({ icon, description, method, styles }) {
+function Icon({
+  icon = undefined,
+  description = "Not things",
+  method = undefined,
+  styles = undefined,
+}) {
   const boxId = `box-${Math.random().toString(36).substr(2, 9)}`;
   return (
     <>
@@ -92,7 +105,7 @@ function Icon({ icon, description, method, styles }) {
   );
 }
 
-function Tab({ name, isSelected, props }) {
+function Tab({ name = undefined, isSelected, props }) {
   return (
     <div {...props} className={cx("tab", isSelected && "selected")}>
       {name}
@@ -100,10 +113,58 @@ function Tab({ name, isSelected, props }) {
   );
 }
 
-Icon.defaultProps = {
-  icon: null,
-  description: undefined,
-  method: null,
-};
+function CardChat({
+  image = undefined,
+  title = "Username",
+  lastChat = "The last chat",
+  time = "20:30",
+  count = undefined,
+  isPin = false,
+  isMute = false,
+}) {
+  return (
+    <div className={cx("card-chat", isPin && "pin")}>
+      <div className={cx("wrapper")}>
+        <img className={cx("image")} src={image} alt={title} />
+        <div className={cx("info")}>
+          {/* Info general */}
+          <div className={cx("top")}>
+            {/* Title */}
+            <span>{title}</span>
+
+            <div>
+              {isMute && (
+                <FontAwesomeIcon
+                  icon={faBellSlash}
+                  style={{
+                    color: "#ccc",
+                    marginRight: "5px",
+                    fontSize: "13px",
+                  }}
+                />
+              )}
+              {/* time */}
+              <span className={cx("time")}>{time}</span>
+            </div>
+          </div>
+
+          {/* Last chat and isPin */}
+          <div className={cx("bottom")}>
+            <span className={cx("text")}>{lastChat}</span>
+            {isPin && (
+              <div>
+                {count && <span className={cx("number")}>{count}</span>}{" "}
+                <FontAwesomeIcon
+                  icon={faThumbTack}
+                  transform={{ rotate: 45 }}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default Chat;
