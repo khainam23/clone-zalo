@@ -12,11 +12,11 @@ import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import { Tooltip } from "react-tooltip";
 
-const className = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 function Header(props) {
   return (
-    <div {...props} className={className("container")}>
+    <div {...props} className={cx("container")}>
       {/* Head */}
       <header className="header">
         <Box
@@ -40,19 +40,18 @@ function Header(props) {
   );
 }
 
-function Box({ src, icon, description, method, isSelected, ...props }) {
+function Box({ src, icon, description, method, isSelected }) {
   const boxId = `box-${Math.random().toString(36).substr(2, 9)}`;
   return (
     <>
       <div
         id={boxId}
         onClick={method || undefined}
-        className={className("box", isSelected && "selected")}
-        {...props}
+        className={cx("box", isSelected && "selected")}
       >
         {src ? (
           <img
-            className={className("image")}
+            className={cx("image")}
             src={src}
             alt={description || "Image"}
           />

@@ -3,13 +3,13 @@ import Content from './components/Content';
 import classNames from 'classnames/bind';
 import styles from './App.module.scss';
 
-const className = classNames.bind(styles);
+const cx = classNames.bind(styles);
 
 function App() {
   return (
-    <div className={className('app')}>
+    <div className={cx('app')}>
       <Header></Header>
-      <Content className={className('content')}></Content>
+      <Content className={cx('content')}></Content>
     </div>
   );
 }
