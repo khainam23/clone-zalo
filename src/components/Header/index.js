@@ -40,7 +40,13 @@ function Header(props) {
   );
 }
 
-function Box({ src, icon, description, method, isSelected }) {
+function Box({
+  src = undefined,
+  icon = undefined,
+  description = "Not things",
+  method = undefined,
+  isSelected = false,
+}) {
   const boxId = `box-${Math.random().toString(36).substr(2, 9)}`;
   return (
     <>
@@ -50,26 +56,18 @@ function Box({ src, icon, description, method, isSelected }) {
         className={cx("box", isSelected && "selected")}
       >
         {src ? (
-          <img
-            className={cx("image")}
-            src={src}
-            alt={description || "Image"}
-          />
+          <img className={cx("image")} src={src} alt={description || "Image"} />
         ) : (
           <FontAwesomeIcon icon={icon} />
         )}
       </div>
-      <Tooltip anchorSelect={`#${boxId}`} content={description} delayShow={500} />
+      <Tooltip
+        anchorSelect={`#${boxId}`}
+        content={description}
+        delayShow={500}
+      />
     </>
   );
 }
-
-// Default Props
-Box.defaultProps = {
-  src: undefined,
-  icon: null,
-  description: "",
-  method: null,
-};
 
 export default Header;

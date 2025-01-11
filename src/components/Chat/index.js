@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Tooltip } from "react-tooltip";
 import {
   faUserPlus,
   faMagnifyingGlass,
@@ -10,9 +9,10 @@ import {
   faCaretDown,
   faThumbTack,
   faBellSlash,
-  faUnderline,
 } from "@fortawesome/free-solid-svg-icons";
 import test from "../../assets/images/test.png";
+
+import Icon from '../Icon'
 
 const cx = classNames.bind(styles);
 
@@ -79,32 +79,6 @@ function Chat(props) {
   );
 }
 
-function Icon({
-  icon = undefined,
-  description = "Not things",
-  method = undefined,
-  styles = undefined,
-}) {
-  const boxId = `box-${Math.random().toString(36).substr(2, 9)}`;
-  return (
-    <>
-      <div
-        id={boxId}
-        onClick={method || undefined}
-        className={cx("box")}
-        style={styles}
-      >
-        <FontAwesomeIcon icon={icon} />
-      </div>
-      <Tooltip
-        anchorSelect={`#${boxId}`}
-        content={description}
-        delayShow={500}
-      />
-    </>
-  );
-}
-
 function Tab({ name = undefined, isSelected, props }) {
   return (
     <div {...props} className={cx("tab", isSelected && "selected")}>
@@ -121,9 +95,10 @@ function CardChat({
   count = undefined,
   isPin = false,
   isMute = false,
+  isSelected = false
 }) {
   return (
-    <div className={cx("card-chat", isPin && "pin")}>
+    <div className={cx("card-chat", isPin && "pin", isSelected && "selected")}>
       <div className={cx("wrapper")}>
         <img className={cx("image")} src={image} alt={title} />
         <div className={cx("info")}>

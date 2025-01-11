@@ -31,7 +31,7 @@
         }
 
         .search {
-          padding: 10px 50px 10px 40px;
+          padding: 10px 28px 10px 40px;
           background-color: #ebecf0;
           border: none;
           border-radius: 5px;
@@ -79,25 +79,6 @@
   }
 }
 
-.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  margin: 0 3px;
-  padding: 0 8px;
-  cursor: pointer;
-  color: black;
-  font-size: 16px;
-
-  // Định nghĩa biến CSS cho màu nền khi được chọn
-  --color-selected: #e5e7eb;
-
-  &:hover {
-    background-color: var(--color-selected);
-  }
-}
-
 .tab {
   color: #5a6981;
   margin-right: 10px;
@@ -120,6 +101,10 @@
 .card-chat {
   &.pin {
     background-color: #f7f8f9;
+  }
+
+  &.selected {
+    background-color: #dbebff;
   }
 
   .wrapper {
