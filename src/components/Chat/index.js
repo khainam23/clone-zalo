@@ -72,7 +72,7 @@ function Chat(props) {
       {/* Body chat */}
       <div className={cx("chats")}>
       {Array.from({ length: 10 }, (_, i) => {
-          return <CardChat key={i} image={test} />;
+          return <CardChat key={i} title={`${i + 1}-username`} image={test} />;
         })}
       </div>
     </div>
