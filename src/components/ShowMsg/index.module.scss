@@ -70,7 +70,66 @@
   }
 
   .option {
-    flex: 1;
+    flex: 1.5;
     border-left: 1px solid var(--line-color);
+
+    .title {
+      border-bottom: 1px solid var(--line-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 21px 0;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 18px;
+      margin-bottom: 17px;
+
+      .fast-option {
+        display: flex;
+        align-items: flex-start;  
+        margin: 5px 48px 0;
+      }
+    }
+
+    .info-general {
+      display: flex;
+      flex-direction: column;
+
+      .item {
+        display: flex;
+        padding: 10px 0 10px 15px;
+        line-height: 10 0%;
+        font-size: 18px;
+
+        .text {
+          margin-left: 5px;
+        }
+
+        &:hover {
+          background-color: #f1f2f4;
+        }
+      }
+    }
+  }
+}
+
+.box-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-right: 10px;
+  flex: 1;
+
+  &:last-child {
+    margin-right: 0;
   }
 }
