@@ -7,6 +7,14 @@
   flex: 1;
   padding: 0;
   overflow: hidden;
+
+  /* Hiển thị thanh kéo khi hover hoặc active */
+  &:hover ::-webkit-scrollbar-thumb,
+  &:active ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #b5b5b5;
+    opacity: 0.8;
+  }
 }
 
 .header {
@@ -118,37 +126,38 @@
     }
 
     .info {
-        margin-left: 15px;
+      margin-left: 15px;
+      width: 100%;
+
+      .top {
+        margin-bottom: 5px;
+
+        .time {
+          color: #ccc;
+        }
+      }
+
+      .top,
+      .bottom {
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
 
-        .top {
-            margin-bottom: 5px;
-
-            .time {
-                color: #ccc;
-            }
+      .bottom {
+        .text {
+          color: #ccc;
         }
 
-        .top, .bottom {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
+        .number {
+          margin-right: 5px;
+          background-color: #c31818;
+          padding: 5px;
+          border-radius: 50%;
+          color: #fff;
+          font-size: 13px;
         }
-
-        .bottom {
-            .text {
-                color: #ccc;
-            }
-
-            .number {
-              margin-right: 5px;
-              background-color: #c31818;
-              padding: 5px;
-              border-radius: 50%;
-              color: #fff;
-              font-size: 13px;
-            }
-        }
+      }
     }
   }
 }

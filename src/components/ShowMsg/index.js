@@ -20,11 +20,12 @@ import {
   faBell,
   faGear,
   faUserGroup,
-  faClock
+  faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import test from "../../assets/images/test.png";
 
 import Icon from "../Icon";
+import Message from "../Message";
 
 const cx = classNames.bind(style);
 
@@ -65,7 +66,11 @@ function ShowMsg(props) {
         </div>
 
         {/* Chat */}
-        <div className={cx("chat")}></div>
+        <div className={cx("chat")}>
+          {Array.from({ length: 50 }).map((_, index) => (
+            <Message key={index} message={`${index + 1}`} isSender={index % 2 == 0 ? true : false} />
+          ))}
+        </div>
 
         {/* Input */}
         <div className={cx("input")}>
@@ -126,7 +131,10 @@ function ShowMsg(props) {
         <div className={cx("info")}>
           {/* Image */}
           <div>
-            <img src={test} style={{borderRadius: '50%', width: '48px', height: '48px'}}/>
+            <img
+              src={test}
+              style={{ borderRadius: "50%", width: "48px", height: "48px" }}
+            />
           </div>
 
           <h1>Name</h1>
@@ -145,29 +153,25 @@ function ShowMsg(props) {
 
         {/* Info general */}
         <div className={cx("info-general")}>
-            <div className={cx("item")}>
-              <FontAwesomeIcon icon={faClock} />
-              <span className={cx('text')}>Danh sách nhắc hạn</span>
-            </div>
-            <div className={cx("item")}>
-              <FontAwesomeIcon icon={faUserGroup} />
-              <span className={cx('text')}>x nhóm chung</span>
-            </div>
+          <div className={cx("item")}>
+            <FontAwesomeIcon icon={faClock} />
+            <span className={cx("text")}>Danh sách nhắc hạn</span>
+          </div>
+          <div className={cx("item")}>
+            <FontAwesomeIcon icon={faUserGroup} />
+            <span className={cx("text")}>x nhóm chung</span>
+          </div>
         </div>
 
         <Line />
 
         {/* Store: Image, Video */}
-        <div>
-          Ảnh
-        </div>
+        <div>Ảnh</div>
 
         <Line />
 
         {/* Store: File */}
-        <div>
-          File
-        </div>
+        <div>File</div>
 
         {/* Store: Link */}
         <div>Link</div>
@@ -185,8 +189,17 @@ function ShowMsg(props) {
 function BoxIcon({ icon = undefined, description = "Nothing" }) {
   return (
     <div className={cx("box-icon")}>
-      <Icon icon={icon} styles={{padding: '10px', borderRadius: '50%', backgroundColor: '#e5e7eb'}}/>
-      <span style={{textAlign: 'center', marginTop: '5px'}}>{description}</span>
+      <Icon
+        icon={icon}
+        styles={{
+          padding: "10px",
+          borderRadius: "50%",
+          backgroundColor: "#e5e7eb",
+        }}
+      />
+      <span style={{ textAlign: "center", marginTop: "5px" }}>
+        {description}
+      </span>
     </div>
   );
 }
