@@ -1,5 +1,5 @@
-import Header from './components/Header';
-import Content from './components/Content';
+import Header from './container/Header';
+import Content from './container/Content';
 import classNames from 'classnames/bind';
 import styles from './App.module.scss';
 
