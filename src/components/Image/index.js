@@ -1,11 +1,12 @@
 import test from "../../assets/images/test.png";
 
-function Image({ src = test, alt = "Image", height = 48, width = 48 }) {
+function Image({src = test, alt = "Image", styles, ...props}) {
   return (
     <img
       src={src}
       alt={alt}
-      style={{ height: height, width: width, borderRadius: "50%" }}
+      style={{height: 48, width: 48, borderRadius: "50%", ...styles}}
+      {...props}
     />
   );
 }

@@ -5,9 +5,10 @@ import {
   faCloud,
   faBriefcase,
   faGear,
-} from "@fortawesome/free-solid-svg-icons";``
-import test from "../../assets/images/test.png";
+} from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
+import Image from "../../components/Image";
+import { Tooltip } from "react-tooltip";
 
 import styles from "./index.module.scss";
 import TabItem from "../TabItem";
@@ -18,12 +19,8 @@ function Header(props) {
   return (
     <div {...props} className={cx("container")}>
       {/* Head */}
-      <header className="header">
-        <TabItem
-          src={test}
-          description="Avatar"
-          style={{ margin: "0", paddingTop: "0" }}
-        />
+      <header className={cx('header')}>
+        <Image alt="Avatar" height={32} width={32} className={cx('avatar')}/>
         <div style={{ padding: "5px" }}></div>
         <TabItem icon={faCommentDots} description="Tin nhắn" isSelected />
         <TabItem icon={faAddressBook} description="Danh bạ" />

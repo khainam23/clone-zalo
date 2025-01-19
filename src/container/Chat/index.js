@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import test from "../../assets/images/test.png";
 
-import Icon from '../Icon'
+import Icon from '../../components/Icon'
 
 const cx = classNames.bind(styles);
 

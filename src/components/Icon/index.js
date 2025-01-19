@@ -1,7 +1,6 @@
 import { Tooltip } from "react-tooltip";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useId } from "react";
 import style from "./index.module.scss";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,9 +10,10 @@ function Icon({
   icon = faQuestion,
   description = "Not things",
   method,
-  styles,
+  styles = {},
   isSelected = false,
   isShowDescription = true,
+  ...props
 }) {
   const boxId = `box-${Math.random().toString(36).substr(2, 9)}`;
   return (
@@ -23,6 +23,7 @@ function Icon({
         onClick={method}
         className={cx("box", { selected: isSelected })}
         style={styles}
+        {...props}
       >
         <FontAwesomeIcon icon={icon} />
       </div>
