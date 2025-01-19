@@ -10,7 +10,7 @@ import classNames from "classnames/bind";
 import Image from "../../components/Image";
 
 import styles from "./index.module.scss";
-import Icon from "../../components/Icon";
+import Icon from "~/components/Icon";
 
 const cx = classNames.bind(styles);
 
@@ -21,19 +21,61 @@ function Header(props) {
       <header className={cx("header")}>
         <Image alt="Avatar" height={32} width={32} className={cx("avatar")} />
         <div style={{ padding: "5px" }}></div>
-        <Icon className={cx('box')} icon={faCommentDots} description="Tin nhắn" isSelected />
-        <Icon className={cx('box')} icon={faAddressBook} description="Danh bạ" />
-        <Icon className={cx('box')} icon={faSquareCheck} description="To-do" />
+        {itemHeader.map((item, index) => (
+          <Icon
+            key={index}
+            className={cx("box")}
+            icon={item.icon}
+            description={item.description}
+            isSelected={item.isSelected ?? false}
+          />
+        ))}
       </header>
 
       {/* Footer */}
       <footer className="footer">
-        <Icon className={cx('box')} icon={faCloud} description="Cloud của tôi" />
-        <Icon className={cx('box')} icon={faBriefcase} description="Công cụ" />
-        <Icon className={cx('box')} icon={faGear} description="Cài đặt" />
+        {itemFooter.map((item, index) => (
+          <Icon
+            key={index}
+            className={cx("box")}
+            icon={item.icon}
+            description={item.description}
+          />
+        ))}
       </footer>
     </div>
   );
 }
+
+const itemHeader = [
+  {
+    icon: faCommentDots,
+    description: "Tin nhắn",
+    isSelected: true,
+  },
+  {
+    icon: faAddressBook,
+    description: "Danh bạ",
+  },
+  {
+    icon: faSquareCheck,
+    description: "To-do",
+  },
+];
+
+const itemFooter = [
+  {
+    icon: faCloud,
+    description: "Cloud của tôi",
+  },
+  {
+    icon: faBriefcase,
+    description: "Công cụ",
+  },
+  {
+    icon: faGear,
+    description: "Cài đặt",
+  },
+];
 
 export default Header;
