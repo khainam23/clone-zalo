@@ -18,13 +18,12 @@ import {
   faFaceSmile,
   faThumbsUp,
   faBell,
-  faGear,
   faUserGroup,
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
-import test from "../../assets/images/test.png";
 
-import Icon from "../../components/Icon";
+import Image from "~/components/Image";
+import Icon from "~/components/Icon";
 import Message from "../Message";
 
 const cx = classNames.bind(style);
@@ -39,7 +38,7 @@ function ShowMsg(props) {
           <div className={cx("wrapper")}>
             {/* Info */}
             <div className={cx("info")}>
-              <img className={cx("image")} src={test} />
+              <Image />
               <div className={cx("description")}>
                 <span className={cx("text")}>Username</span>
                 <div>
@@ -68,7 +67,7 @@ function ShowMsg(props) {
         {/* Chat */}
         <div className={cx("chat")}>
           {Array.from({ length: 50 }).map((_, index) => (
-            <Message key={index} message={`${index + 1}`} isSender={index % 2 == 0 ? true : false} />
+            <Message key={index} message={`${index + 1}`} isSender={index % 2 === 0 ? true : false} />
           ))}
         </div>
 
@@ -131,10 +130,7 @@ function ShowMsg(props) {
         <div className={cx("info")}>
           {/* Image */}
           <div>
-            <img
-              src={test}
-              style={{ borderRadius: "50%", width: "48px", height: "48px" }}
-            />
+            <Image style={{ borderRadius: "50%", width: "48px", height: "48px" }} />
           </div>
 
           <h1>Name</h1>

@@ -1,4 +1,4 @@
-import test from "../../assets/images/test.png";
+import test from "~/assets/images/test.png";
 
 function Image({src = test, alt = "Image", styles, ...props}) {
   return (

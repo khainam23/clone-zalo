@@ -10,9 +10,9 @@ import {
   faThumbTack,
   faBellSlash,
 } from "@fortawesome/free-solid-svg-icons";
-import test from "../../assets/images/test.png";
+import test from "~/assets/images/test.png";
 
-import Icon from '../../components/Icon'
+import Icon from '~/components/Icon'
 
 const cx = classNames.bind(styles);
 

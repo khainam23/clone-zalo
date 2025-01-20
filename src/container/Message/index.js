@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import Image from "../../components/Image";
+import Image from "~/components/Image";
 
 import style from "./index.module.scss";
 
