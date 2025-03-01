@@ -1,0 +1,163 @@
+:root {
+  --line-color: rgb(217 217 217);
+}
+
+.container {
+  border-right: 1px solid var(--line-color);
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+
+  /* Hiển thị thanh kéo khi hover hoặc active */
+  &:hover ::-webkit-scrollbar-thumb,
+  &:active ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #b5b5b5;
+    opacity: 0.8;
+  }
+}
+
+.header {
+  border-bottom: 1px solid var(--line-color);
+
+  .wrapper {
+    margin: 15px 10px 0 15px;
+    height: 100%;
+    width: 100%;
+
+    .general {
+      display: flex;
+      flex-direction: row;
+
+      .input {
+        position: relative;
+
+        .manifying-glass {
+          position: absolute;
+          top: 28%;
+          left: 5%;
+        }
+
+        .search {
+          padding: 10px 28px 10px 40px;
+          background-color: #ebecf0;
+          border: none;
+          border-radius: 5px;
+
+          &:focus-visible {
+            outline: 1px solid blue;
+          }
+        }
+      }
+    }
+
+    .functional {
+      display: flex;
+      flex-direction: row;
+      margin-top: 25px;
+      margin-right: 30px;
+      justify-content: space-between;
+
+      .tabs {
+        display: flex;
+      }
+
+      .method {
+        display: flex;
+        margin-bottom: 2px;
+
+        // Định nghĩa biến CSS cho màu nền khi được chọn
+        --color-selected: #e5e7eb;
+
+        .filter {
+          font-size: 15px;
+          padding: 5px 10px;
+
+          .text {
+            margin-right: 5px;
+          }
+
+          &:hover {
+            background-color: var(--color-selected);
+            border-radius: 9999px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tab {
+  color: #5a6981;
+  margin-right: 10px;
+
+  --color-selected: #005ae0;
+
+  &.selected {
+    color: var(--color-selected);
+    border-bottom: 3px solid var(--color-selected);
+  }
+}
+
+.chats {
+  height: calc(100% - 110px);
+  overflow-y: auto; /* Hiển thị thanh trượt dọc nếu nội dung vượt quá chiều cao */
+  overflow-x: hidden; /* Ẩn thanh trượt ngang */
+  box-sizing: border-box;
+}
+
+.card-chat {
+  &.pin {
+    background-color: #f7f8f9;
+  }
+
+  &.selected {
+    background-color: #dbebff;
+  }
+
+  .wrapper {
+    display: flex;
+    padding: 10px 10px;
+
+    .image {
+      border-radius: 50%;
+      width: 47px;
+      height: 47px;
+    }
+
+    .info {
+      margin-left: 15px;
+      width: 100%;
+
+      .top {
+        margin-bottom: 5px;
+
+        .time {
+          color: #ccc;
+        }
+      }
+
+      .top,
+      .bottom {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .bottom {
+        .text {
+          color: #ccc;
+        }
+
+        .number {
+          margin-right: 5px;
+          background-color: #c31818;
+          padding: 5px;
+          border-radius: 50%;
+          color: #fff;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

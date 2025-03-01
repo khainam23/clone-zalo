@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0 3px;
+  padding: 0 8px;
+  cursor: pointer;
+  color: black;
+  font-size: 16px;
+
+  // Định nghĩa biến CSS cho màu nền khi được chọn
+  --color-selected: #e5e7eb;
+
+  &:hover {
+    background-color: var(--color-selected);
+  }
+
+  &.selected {
+    background-color: #dbebff;
+  }
+}
